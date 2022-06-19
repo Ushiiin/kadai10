@@ -6,6 +6,7 @@ session_start();
 //POST値を受け取る
 $lid = $_POST['lid'];
 $lpw = $_POST['lpw'];
+$hashed_lpw = password_hash($lpw,PASSWORD_DEFAULT);
 
 //1.  DB接続します
 require_once('funcs.php');
@@ -13,9 +14,8 @@ $pdo = db_conn();
 
 //2. データ登録SQL作成
 // gs_user_tableに、IDとWPがあるか確認する。
-$stmt = $pdo->prepare('SELECT * FROM user_table WHERE lid = :lid and lpw = :lpw');
+$stmt = $pdo->prepare('SELECT * FROM user_table WHERE lid = :lid');
 $stmt->bindValue(':lid', $lid, PDO::PARAM_STR);
-$stmt->bindValue(':lpw', $lpw, PDO::PARAM_STR);
 $status = $stmt->execute();
 
 //3. SQL実行時にエラーがある場合STOP
@@ -28,7 +28,7 @@ if($status === false){
 $val = $stmt->fetch();
 // echo "XX";
 // echo $status;
-// var_Dump($val);
+var_Dump($val);
 //if(password_verify($lpw, $val['lpw'])){ //* PasswordがHash化の場合はこっちのIFを使う
 
 // データがないとき$valはBool値のFalseとなるので、先に処理する。
@@ -39,7 +39,8 @@ if (!$val) {
     exit();
 }
 
-if( $val['id'] != ''){
+// password_verify(普通のパスワード, ハッシュ化されたパスワード)を比較
+if(password_verify($lpw, $val['hashed_lpw'])){ //* PasswordがHash化の場合はこっちのIFを使う
     //Login成功時 該当レコードがあればSESSIONに値を代入
     $_SESSION['chk_ssid'] = session_id();
     $_SESSION['kanri_flag'] = $val['kanri_flag'];

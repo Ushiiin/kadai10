@@ -34,7 +34,7 @@
     <form name="form1" action="register_act.php" method="post">
         ID:<input type="text" name="lid" />
         PW:<input type="password" name="lpw" />
-        <input type="submit" value="LOGIN" />
+        <input type="submit" value="Register" />
     </form>
 
 

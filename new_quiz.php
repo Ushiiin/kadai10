@@ -27,7 +27,13 @@
     <!-- Head[End] -->
 
     <!-- Main[Start] -->
-    <form enctype="multipart/form-data" method="POST" action="upload.php">
+
+    <!--ifと:で最後endifするとhtmlタグをそのまま使える-->
+    <?php if(isset($_GET['error'])) : ?>
+        <p class="text-danger"><?= $_GET['error']?></p>
+    <?php endif; ?>
+
+    <form enctype="multipart/form-data" method="POST" action="confirm.php">
         <div class="jumbotron">
             <fieldset>
                 <legend>新クイズ</legend>
