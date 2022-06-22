@@ -49,7 +49,7 @@
 - new_quiz
     - 新しいクイズを追加する。
     - FILEをアップロードする必要がある。
-    - uploadへ飛ぶ。
+    - confirmへ飛ぶ。
 
 - confirm
     - 確認画面。
