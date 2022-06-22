@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 15, 2022 at 02:23 PM
+-- Generation Time: Jun 22, 2022 at 01:38 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -44,8 +44,10 @@ CREATE TABLE `quiz_table` (
 
 INSERT INTO `quiz_table` (`id`, `quiz_name`, `file_path`, `description`, `answer`, `creater`, `insert_time`, `update_time`) VALUES
 (3, '夜景', 'images/hakodate.jpg', '函館山', '北海道', '1', '2022-06-15 21:34:51', '2022-06-15 21:34:51'),
-(4, '噴火', 'images/sakurajima.jpg', '桜島', '鹿児島', '2', '2022-06-15 21:55:56', '2022-06-15 21:55:56'),
-(5, '中華街', 'images/tyukagai.PNG', '横浜中華街', '神奈川', '2', '2022-06-15 22:30:01', '2022-06-15 22:30:01');
+(4, '噴火', 'images/sakurajima.jpg', '桜島', '鹿児島県', '2', '2022-06-15 21:55:56', '2022-06-19 21:58:01'),
+(5, '中華街', 'images/tyukagai.PNG', '横浜中華街', '神奈川県', '2', '2022-06-15 22:30:01', '2022-06-19 21:58:06'),
+(6, '白川郷', 'images/shirakawago.PNG', '世界遺産', '岐阜県', '2', '2022-06-18 13:28:30', '2022-06-19 21:58:10'),
+(15, '山手線', 'images/20220619135309_yamanote.PNG', 'ぐるぐる', '東京都', '2', '2022-06-19 22:53:09', '2022-06-19 22:53:09');
 
 --
 -- Indexes for dumped tables
@@ -65,7 +67,7 @@ ALTER TABLE `quiz_table`
 -- AUTO_INCREMENT for table `quiz_table`
 --
 ALTER TABLE `quiz_table`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 15, 2022 at 02:23 PM
+-- Generation Time: Jun 22, 2022 at 01:38 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -31,7 +31,7 @@ CREATE TABLE `user_table` (
   `id` int(12) NOT NULL,
   `name` varchar(64) NOT NULL,
   `lid` varchar(128) NOT NULL,
-  `lpw` varchar(64) NOT NULL,
+  `hashed_lpw` varchar(255) NOT NULL,
   `kanri_flag` int(1) NOT NULL,
   `life_flag` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -40,9 +40,11 @@ CREATE TABLE `user_table` (
 -- Dumping data for table `user_table`
 --
 
-INSERT INTO `user_table` (`id`, `name`, `lid`, `lpw`, `kanri_flag`, `life_flag`) VALUES
-(1, 'master', 'master_id', 'master_pass', 1, 0),
-(2, 'guest', 'test1', 'test1', 0, 0);
+INSERT INTO `user_table` (`id`, `name`, `lid`, `hashed_lpw`, `kanri_flag`, `life_flag`) VALUES
+(1, 'master', 'master_id', '$2y$10$OCZYxG4dg4Xi9gnByVT1iuQNbad/EQ7RYvIf5iLObYq7GP8.G/Zgm', 1, 0),
+(2, 'guest', 'test1', '$2y$10$iAckyGTjeoxrUaQB0F0/jOohwDDTLO813Y4RY.fxvlnJ6Gh3CTIfO', 0, 0),
+(3, 'guest', 'taro', '$2y$10$VyFHUcV43wBCARyMVooItO1CeCUjCoL4v0VOGEgjGLZiQVTQ1ZbCW', 0, 0),
+(4, 'guest', 'ore', '$2y$10$Rnp.3WdTwav1nG093KgeS.1HMDqj/zSBoZqTmBHjLMZhJBcjE8i12', 0, 0);
 
 --
 -- Indexes for dumped tables
@@ -62,7 +64,7 @@ ALTER TABLE `user_table`
 -- AUTO_INCREMENT for table `user_table`
 --
 ALTER TABLE `user_table`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
